@@ -450,7 +450,7 @@ def group_packages(module, names, pacman, result):
             if name:
                 if is_local_package(name):
                     local_packages.append(name)
-                elif is_aur_package(name) and not module.parmas['force']:
+                elif is_aur_package(name) and not module.params['force']:
                     aur_packages.append(name)
                 elif is_official_package(module, name, pacman):
                     extracted = extract_packages(module, name, pacman)
