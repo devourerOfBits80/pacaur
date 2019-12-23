@@ -52,10 +52,12 @@ options:
     force:
         description:
             - Whether or not to force required action. During the package(s)
-              removing, responsible for skipping all dependencies checking,
-              equivalent of C(extra_args)='--nodeps --nodeps'. During the cache
-              updating, responsible for refreshing all package databases, even
-              if they appear to be up-to-date, equivalent of
+              installing or updating, responsible for enforcing the package
+              details checking in the official repositories. During the
+              package(s) removing, responsible for skipping all dependencies
+              checking, equivalent of C(extra_args)='--nodeps --nodeps'. During
+              the cache updating, responsible for refreshing all package
+              databases, even if they appear to be up-to-date, equivalent of
               C(extra_args)='--refresh --refresh'.
         default: no
         type: bool
@@ -448,7 +450,7 @@ def group_packages(module, names, pacman, result):
             if name:
                 if is_local_package(name):
                     local_packages.append(name)
-                elif is_aur_package(name):
+                elif is_aur_package(name) and not module.parmas['force']:
                     aur_packages.append(name)
                 elif is_official_package(module, name, pacman):
                     extracted = extract_packages(module, name, pacman)

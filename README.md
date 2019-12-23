@@ -36,7 +36,7 @@ Alternatively, you can just copy or link the *pacaur.py* file into the *library*
 
 - Either the name or upgrade option is required however, they cannot be used simultaneously.
 - The update-cache option can be used as a part of the name or upgrade option and also as a separate step.
-- The force option has an impact on two actions. During the package(s) removing, it is responsible for skipping all dependencies checking and during the cache updating, it is responsible for refreshing all package databases, even if they appear to be up-to-date.
+- The force option has an impact on a few actions. During the package(s) installing or updating, it is responsible for enforcing the package details checking in the official repositories. During the package(s) removing, it is responsible for skipping all dependencies checking. Finally, during the cache updating, it is responsible for refreshing all package databases, even if they appear to be up-to-date.
 - Some actions are only available if the pacman's wrapper eg. yay, pikaur or trizen is already installed in the system.
 
 ### Examples
