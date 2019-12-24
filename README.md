@@ -160,6 +160,6 @@ Alternatively, you can just copy or link the *pacaur.py* file into the *library*
   pacaur:
     upgrade: yes
     update_cache: yes
-    become: yes
-    become_user: non-root-user
+  become: yes
+  become_user: non-root-user
 ```
