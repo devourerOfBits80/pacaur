@@ -415,7 +415,7 @@ def is_official_package(module, package, pacman):
     '''
     Determine if the package is available in the official repositories.
     '''
-    ere = '^{}$'.format(package)
+    ere = '^{}$'.format(re.escape(package))
     rc, _, _ = module.run_command([pacman, '-S', '-s', ere], check_rc=False)
     return rc == 0
 
