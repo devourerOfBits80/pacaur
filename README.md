@@ -1,25 +1,25 @@
 # pacaur
 
-[Ansible](https://www.ansible.com) module to manage [Arch Linux](https://www.archlinux.org) OS packages from the official repositories and from the [AUR](https://aur.archlinux.org/).
+*[Ansible](https://www.ansible.com)* module to manage *[Arch Linux](https://www.archlinux.org)* OS packages from the official repositories and from the *[AUR](https://aur.archlinux.org/)*.
 
-For packages that are available in the official repositories and also for local packages, it uses the [pacman](https://wiki.archlinux.org/index.php/pacman) by default. In the case of AUR packages, it tries to find one of the predefined pacman's wrapper and use it as a package manager. Otherwise, it uses an approach with the [makepkg](https://wiki.archlinux.org/index.php/Makepkg).
+For packages that are available in the official repositories and also for local packages, it uses the *[pacman](https://wiki.archlinux.org/index.php/pacman)* by default. In the case of *AUR* packages, it tries to find one of the predefined pacman's wrapper and use it as a package manager. Otherwise, it uses an approach with the *[makepkg](https://wiki.archlinux.org/index.php/Makepkg)*.
 
 The following pacman wrappers are currently supported (additional can be added):
 
-- [yay](https://aur.archlinux.org/packages/yay/)
-- [pikaur](https://aur.archlinux.org/packages/pikaur/)
-- [trizen](https://aur.archlinux.org/packages/trizen/)
+- *[yay](https://aur.archlinux.org/packages/yay/)*
+- *[pikaur](https://aur.archlinux.org/packages/pikaur/)*
+- *[trizen](https://aur.archlinux.org/packages/trizen/)*
 
 ## Installation
 
-Clone the *pacaur* repository into the Ansible custom modules directory at the user account:
+Clone the *pacaur* repository into the *Ansible* custom modules directory at the user account:
 
 > \$ git clone <https://github.com/devourerOfBits80/pacaur.git> ~/.ansible/plugins/modules/pacaur
 
-Alternatively, you can just copy or link the *pacaur.py* file into the *library* directory that should be available inside the top-level of your Ansible project (for example):
+Alternatively, you can just copy or link the *pacaur.py* file into the *library* directory that should be available inside the top-level of your *Ansible* project (for example):
 
-> \$ git submodule add <https://github.com/devourerOfBits80/pacaur.git> ./project_directory/library/pacaur  
-> \$ git submodule update --init --recursive (only for older versions of Git)
+> \$ git submodule add <https://github.com/devourerOfBits80/pacaur.git> ./{project_directory}/library  
+> \$ git submodule update --init --recursive (only for older versions of *Git*)
 
 ## Usage
 
@@ -37,7 +37,7 @@ Alternatively, you can just copy or link the *pacaur.py* file into the *library*
 - Either the name or upgrade option is required however, they cannot be used simultaneously.
 - The update-cache option can be used as a part of the name or upgrade option and also as a separate step.
 - The force option has an impact on a few actions. During the package(s) installing or updating, it is responsible for enforcing the package details checking in the official repositories. During the package(s) removing, it is responsible for skipping all dependencies checking. Finally, during the cache updating, it is responsible for refreshing all package databases, even if they appear to be up-to-date.
-- Some actions are only available if the pacman's wrapper eg. yay, pikaur or trizen is already installed in the system.
+- Some actions are only available if the pacman's wrapper eg. *yay*, *pikaur* or *trizen* is already installed in the system.
 
 ### Examples
 
